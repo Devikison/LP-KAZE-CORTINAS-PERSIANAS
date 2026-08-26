@@ -28,6 +28,11 @@ a:hover{color:#6E2159}
 button{font-family:inherit;cursor:pointer}
 a,button{font-family:'Poppins',sans-serif}
 :focus-visible{outline:2px solid #4C0F3D;outline-offset:2px}
+html{scrollbar-width:thin;scrollbar-color:#4C0F3D #F4F5F4}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:#F4F5F4}
+::-webkit-scrollbar-thumb{background:#4C0F3D;border-radius:10px;border:2px solid #F4F5F4}
+::-webkit-scrollbar-thumb:hover{background:#6E2159}
 @media (max-width:940px){
   header a[href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas."]{white-space:nowrap;font-size:13px!important;padding:10px 14px!important}
 }
@@ -63,14 +68,14 @@ a,button{font-family:'Poppins',sans-serif}
       <a href="#portfolio" style="font-size:14px;color:#fff;font-weight:500;opacity:.9" style-hover="opacity:1;color:#C79BB8">Portfólio</a>
       <a href="#contato" style="font-size:14px;color:#fff;font-weight:500;opacity:.9" style-hover="opacity:1;color:#C79BB8">Contato</a>
     </nav>
-    <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." style="flex:none;background:#4C0F3D;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:500;min-height:44px;display:flex;align-items:center;box-shadow:0 3px 10px rgba(20,44,51,.2),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.28),inset 0 1px 0 rgba(255,255,255,.25)">Orçamento no WhatsApp</a>
+    <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." style="flex:none;background:#4C0F3D;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:500;min-height:44px;display:flex;align-items:center;box-shadow:0 3px 10px rgba(20,44,51,.2),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.28),inset 0 1px 0 rgba(255,255,255,.25)">Fale Conosco</a>
   </div>
 </header>
 
 <main id="topo">
 
 <!-- 02 HERO -->
-<section data-hero-section style="background:#FFFFFF;padding:clamp(140px,20vw,180px) 24px 0">
+<section data-hero-section ref="{{ heroRef }}" style="background:#FFFFFF;padding:clamp(140px,20vw,180px) 24px 0">
   <div data-hero-row style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:56px">
     <div data-hero-text style="flex:1 1 440px;min-width:300px;padding-bottom:24px">
       <h1 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2.4rem,5.5vw,3.9rem);line-height:1.08;letter-spacing:-0.02em;margin:0 0 24px;color:#142C33">Cada janela pede uma <em style="color:#4C0F3D;font-style:italic">medida diferente</em>.</h1>
@@ -449,7 +454,9 @@ class Component extends DCLogic {
     activeEmpresaIdx: -1,
     bastidoresMuted: true,
     dragIdx: null,
-    reducedMotion: false
+    reducedMotion: false,
+    barAnchor: 'top',
+    barVisible: true
   };
 
   baRefs = [];
@@ -458,7 +465,21 @@ class Component extends DCLogic {
   empresaObserver = this.makeGroupObserver('activeEmpresaIdx');
 
   componentDidMount() {
-    this.onScroll = () => this.setState({ scrolled: window.scrollY > 40 });
+    this.onScroll = () => {
+      const scrolled = window.scrollY > 40;
+      if (window.innerWidth < 640 && this.heroEl) {
+        const pastHero = this.heroEl.getBoundingClientRect().bottom <= 0;
+        if (pastHero !== this._pastHero) {
+          this._pastHero = pastHero;
+          clearTimeout(this._barTimer);
+          this.setState({ barVisible: false });
+          this._barTimer = setTimeout(() => {
+            this.setState({ barAnchor: pastHero ? 'bottom' : 'top', barVisible: true });
+          }, 260);
+        }
+      }
+      this.setState({ scrolled });
+    };
     this.onResize = () => this.setState({ width: window.innerWidth });
     this.onPointerMove = (e) => {
       if (this.state.dragIdx === null) return;
@@ -479,7 +500,12 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onResize);
     window.removeEventListener('pointermove', this.onPointerMove);
     window.removeEventListener('pointerup', this.onPointerUp);
+    clearTimeout(this._barTimer);
     [this.comoObserver, this.modeloObserver, this.empresaObserver].forEach((o) => o && o.disconnect());
+  }
+
+  heroRef(el) {
+    if (el) this.heroEl = el;
   }
 
   makeGroupObserver(stateKey) {
@@ -563,10 +589,15 @@ class Component extends DCLogic {
     const transition = s.reducedMotion ? 'none' : 'transform .7s cubic-bezier(.22,1,.36,1), opacity .6s ease';
 
     const headerStyle = {
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      transition: 'box-shadow .25s',
+      position: 'fixed',
+      top: s.barAnchor === 'bottom' ? 'auto' : 0,
+      bottom: s.barAnchor === 'bottom' ? 0 : 'auto',
+      left: 0, right: 0, zIndex: 1000,
+      opacity: s.barVisible ? 1 : 0,
+      pointerEvents: s.barVisible ? 'auto' : 'none',
+      transition: 'opacity .28s ease, box-shadow .25s',
       background: '#142C33',
-      boxShadow: s.scrolled ? '0 4px 18px rgba(0,0,0,.22)' : '0 1px 0 rgba(255,255,255,.06)'
+      boxShadow: s.barAnchor === 'bottom' ? '0 -4px 18px rgba(0,0,0,.25)' : (s.scrolled ? '0 4px 18px rgba(0,0,0,.22)' : '0 1px 0 rgba(255,255,255,.06)')
     };
     const navStyle = { display: menuHidden ? 'none' : 'flex', gap: '32px', alignItems: 'center' };
 
@@ -754,6 +785,7 @@ class Component extends DCLogic {
 
     return {
       headerStyle, navStyle,
+      heroRef: (el) => this.heroRef(el),
       playMuted: (el) => this.playMuted(el),
       bastidoresVideoRef: (el) => this.bastidoresVideoRef(el),
       bastidoresMuted: s.bastidoresMuted,
