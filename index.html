@@ -28,10 +28,24 @@ a:hover{color:#6E2159}
 button{font-family:inherit;cursor:pointer}
 a,button{font-family:'Poppins',sans-serif}
 :focus-visible{outline:2px solid #4C0F3D;outline-offset:2px}
+@media (max-width:940px){
+  header a[href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas."]{white-space:nowrap;font-size:13px!important;padding:10px 14px!important}
+}
 @media (max-width:640px){
   h1,h2,h3,h4{text-align:center}
   [data-mc]{text-align:center;margin-left:auto;margin-right:auto}
-  [data-mc-row]{justify-content:center}
+  [data-mc-row]{justify-content:center;flex-wrap:nowrap!important}
+  [data-btn-row] > a{flex:1 1 0;padding-left:10px!important;padding-right:10px!important;font-size:14px!important;white-space:nowrap}
+  [data-cta]{display:flex!important;width:fit-content;margin-left:auto;margin-right:auto}
+  header > div{padding-left:16px!important;padding-right:16px!important;gap:12px!important}
+  [data-hero-section]{padding-top:88px!important}
+  [data-hero-row]{flex-direction:column-reverse;align-items:center!important;gap:28px!important}
+  [data-hero-media]{max-width:none!important;width:calc(100% + 48px);margin:0 -24px}
+  [data-hero-media] > div{border-radius:0!important;aspect-ratio:4/3!important}
+  [data-hero-text]{padding-bottom:0!important;text-align:center;width:100%}
+}
+@media (max-width:380px){
+  [data-btn-row] > a{font-size:13px!important;padding-left:8px!important;padding-right:8px!important}
 }
 </style>
 </helmet>
@@ -56,17 +70,17 @@ a,button{font-family:'Poppins',sans-serif}
 <main id="topo">
 
 <!-- 02 HERO -->
-<section style="background:#FFFFFF;padding:clamp(140px,20vw,180px) 24px 0">
-  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:56px">
-    <div style="flex:1 1 440px;min-width:300px;padding-bottom:24px">
+<section data-hero-section style="background:#FFFFFF;padding:clamp(140px,20vw,180px) 24px 0">
+  <div data-hero-row style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:56px">
+    <div data-hero-text style="flex:1 1 440px;min-width:300px;padding-bottom:24px">
       <h1 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(2.4rem,5.5vw,3.9rem);line-height:1.08;letter-spacing:-0.02em;margin:0 0 24px;color:#142C33">Cada janela pede uma <em style="color:#4C0F3D;font-style:italic">medida diferente</em>.</h1>
       <p data-mc style="font-size:clamp(16px,1.6vw,18px);line-height:1.7;color:#142C33;max-width:480px;margin:0 0 36px">Cortinas e persianas confeccionadas no nosso ateliê, medidas no local e instaladas por quem projetou, sem improviso e sem tamanho padrão.</p>
-      <div data-mc-row style="display:flex;flex-wrap:wrap;gap:16px">
-        <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Pedir orçamento</a>
-        <a href="#modelos" style="border:1.5px solid #142C33;color:#142C33;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(20,44,51,.08)" style-hover="background:#142C33;color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.22)">Ver modelos</a>
+      <div data-mc-row data-btn-row style="display:flex;flex-wrap:wrap;gap:16px">
+        <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Pedir orçamento</a>
+        <a href="#modelos" style="border:1.5px solid #142C33;color:#142C33;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:flex;align-items:center;justify-content:center;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(20,44,51,.08)" style-hover="background:#142C33;color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.22)">Ver modelos</a>
       </div>
     </div>
-    <div style="flex:1 1 320px;min-width:260px;max-width:460px">
+    <div data-hero-media style="flex:1 1 320px;min-width:260px;max-width:460px">
       <div style="position:relative;aspect-ratio:4/5;border-radius:12px;overflow:hidden">
         <img src="uploads/a-hero.jpg" alt="Ambiente com cortinas Kazê" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
@@ -90,12 +104,12 @@ a,button{font-family:'Poppins',sans-serif}
   <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px">
     <div style="flex:1 1 380px;min-width:280px;border:1px solid #E4E7E6;border-radius:14px;padding:40px;transition:all .4s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 3px rgba(20,44,51,.05)" style-hover="border-color:#4C0F3D;box-shadow:0 14px 28px rgba(20,44,51,.1);transform:translateY(-3px);background:#F7EEF3">
       <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.3rem,2.4vw,1.6rem);margin:0 0 16px;letter-spacing:-0.02em">Para a sua casa</h3>
-      <p style="font-size:15px;line-height:1.7;color:#142C33;margin:0 0 24px">Sala, quarto, suíte, cozinha e área gourmet. Tecido, madeira, blackout ou tela solar, escolhido pela incidência solar de cada ambiente.</p>
+      <p data-mc style="font-size:15px;line-height:1.7;color:#142C33;margin:0 0 24px">Sala, quarto, suíte, cozinha e área gourmet. Tecido, madeira, blackout ou tela solar, escolhido pela incidência solar de cada ambiente.</p>
       <a href="#modelos" style="font-size:14px;font-weight:500">Ver modelos</a>
     </div>
     <div style="flex:1 1 380px;min-width:280px;border:1px solid #E4E7E6;border-radius:14px;padding:40px;transition:all .4s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 3px rgba(20,44,51,.05)" style-hover="border-color:#4C0F3D;box-shadow:0 14px 28px rgba(20,44,51,.1);transform:translateY(-3px);background:#F7EEF3">
       <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.3rem,2.4vw,1.6rem);margin:0 0 16px;letter-spacing:-0.02em">Para a sua empresa</h3>
-      <p style="font-size:15px;line-height:1.7;color:#142C33;margin:0 0 24px">Clínicas, consultórios, escritórios e estúdios. Privacidade, blackout técnico e acabamento à altura do que você cobra pelo seu serviço.</p>
+      <p data-mc style="font-size:15px;line-height:1.7;color:#142C33;margin:0 0 24px">Clínicas, consultórios, escritórios e estúdios. Privacidade, blackout técnico e acabamento à altura do que você cobra pelo seu serviço.</p>
       <a href="#empresas" style="font-size:14px;font-weight:500">Ver soluções comerciais</a>
     </div>
   </div>
@@ -118,8 +132,8 @@ a,button{font-family:'Poppins',sans-serif}
             <div style="{{ m.imgStyle }}" role="img" aria-label="{{ m.title }}"></div>
           </div>
           <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 10px;letter-spacing:-0.02em">{{ m.title }}</h3>
-          <p style="font-size:14px;line-height:1.7;color:#142C33;margin:0 0 18px">{{ m.text }}</p>
-          <a href="{{ m.waLink }}" style="border:1.5px solid #142C33;color:#142C33;padding:11px 22px;border-radius:10px;font-size:14px;font-weight:500;display:inline-flex;align-items:center;min-height:44px;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(20,44,51,.08)" style-hover="background:#142C33;color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.22)">Pedir orçamento</a>
+          <p data-mc style="font-size:14px;line-height:1.7;color:#142C33;margin:0 0 18px">{{ m.text }}</p>
+          <a data-cta href="{{ m.waLink }}" style="border:1.5px solid #142C33;color:#142C33;padding:11px 22px;border-radius:10px;font-size:14px;font-weight:500;display:inline-flex;align-items:center;min-height:44px;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(20,44,51,.08)" style-hover="background:#142C33;color:#fff;transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,44,51,.22)">Pedir orçamento</a>
         </div>
       </sc-for>
     </div>
@@ -143,7 +157,7 @@ a,button{font-family:'Poppins',sans-serif}
           <li style="display:flex;align-items:center;gap:14px;color:#fff;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex:none"><circle cx="12" cy="12" r="11" fill="#C79BB8"></circle><path d="M7 12.5l3 3 7-7" stroke="#1E3D46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>Programação por horário para cada ambiente</li>
           <li style="display:flex;align-items:center;gap:14px;color:#fff;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex:none"><circle cx="12" cy="12" r="11" fill="#C79BB8"></circle><path d="M7 12.5l3 3 7-7" stroke="#1E3D46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>Sem cordão pendurado, mais seguro para quem tem criança em casa</li>
         </ul>
-        <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20saber%20sobre%20cortinas%20motorizadas." style="background:#C79BB8;color:#1E3D46;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.4);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#fff;color:#4C0F3D;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.32)">Falar sobre motorização</a>
+        <a data-cta href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20saber%20sobre%20cortinas%20motorizadas." style="background:#C79BB8;color:#1E3D46;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.4);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#fff;color:#4C0F3D;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.32)">Falar sobre motorização</a>
       </div>
       <div style="flex:1 1 380px;min-width:280px;max-width:520px">
 <div style="position:relative;aspect-ratio:1080/1740;max-width:320px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.35)">
@@ -161,7 +175,7 @@ a,button{font-family:'Poppins',sans-serif}
         <div style="font-family:'Poppins',sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#C79BB8;margin-bottom:12px">ÁREA EXTERNA</div>
         <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(1.4rem,2.6vw,1.8rem);color:#fff;margin:0 0 14px;letter-spacing:-0.02em">Toldos que seguram sol e chuva</h3>
         <p data-mc style="font-size:15px;line-height:1.7;color:#fff;opacity:.85;margin:0 0 24px">Estruturas robustas para varanda, área gourmet e fachada, dimensionadas para o vão e para a incidência solar do lado em que ficam. Retráteis ou fixas.</p>
-        <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Toldos%20externos.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" style="border:1.5px solid #C79BB8;color:#C79BB8;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(0,0,0,.15)" style-hover="background:#C79BB8;color:#1E3D46;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)">Pedir orçamento de toldo</a>
+        <a data-cta href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Toldos%20externos.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" style="border:1.5px solid #C79BB8;color:#C79BB8;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;transition:all .45s cubic-bezier(.22,1,.36,1);box-shadow:0 1px 4px rgba(0,0,0,.15)" style-hover="background:#C79BB8;color:#1E3D46;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)">Pedir orçamento de toldo</a>
       </div>
     </div>
   </div>
@@ -300,7 +314,7 @@ a,button{font-family:'Poppins',sans-serif}
           <div ref="{{ e.ref }}" style="{{ e.cardStyle }}"><h4 style="margin:0 0 6px;font-size:15px;font-weight:500">{{ e.title }}</h4><p style="margin:0;font-size:14px;line-height:1.7;color:#2E5B66">{{ e.text }}</p></div>
         </sc-for>
       </div>
-      <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20de%20uma%20empresa%20e%20preciso%20de%20cortinas%20para%20um%20espa%C3%A7o%20comercial." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Solicitar visita técnica</a>
+      <a data-cta href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20de%20uma%20empresa%20e%20preciso%20de%20cortinas%20para%20um%20espa%C3%A7o%20comercial." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Solicitar visita técnica</a>
     </div>
   </div>
 </section>
@@ -362,7 +376,7 @@ a,button{font-family:'Poppins',sans-serif}
         <div><div style="font-size:12px;text-transform:uppercase;color:#2E5B66;margin-bottom:4px">Endereço</div><div style="font-size:16px">Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco – AC, CEP 69.900-514</div></div>
         <div><div style="font-size:12px;text-transform:uppercase;color:#2E5B66;margin-bottom:4px">Atendimento</div><div style="font-size:16px"><span style="text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:2px;text-decoration-color:#4C0F3D;background:rgba(199,155,184,.25);padding:0 3px">Seg a sex, 00h às 00h · Sáb, 00h às 00h</span></div></div>
       </div>
-      <a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica%20para%20medi%C3%A7%C3%A3o." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Agendar medição</a>
+      <a data-cta href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica%20para%20medi%C3%A7%C3%A3o." style="background:#4C0F3D;color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:500;min-height:44px;display:inline-flex;align-items:center;box-shadow:0 4px 14px rgba(20,44,51,.22),inset 0 1px 0 rgba(255,255,255,.2);transition:all .45s cubic-bezier(.22,1,.36,1)" style-hover="background:#6E2159;transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,44,51,.3),inset 0 1px 0 rgba(255,255,255,.25)">Agendar medição</a>
     </div>
     <div style="flex:1 1 380px;min-width:280px">
       <div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid #E4E7E6">
@@ -589,7 +603,9 @@ class Component extends DCLogic {
       if (carouselNeighborsHidden && ad !== 0) {
         style = { position: 'absolute', width: '70%', maxWidth: '360px', height: '100%', opacity: 0, transform: 'translateX(0) scale(0.7)', transition, pointerEvents: 'none' };
       } else if (ad === 0) {
-        style = { position: 'absolute', width: '46%', maxWidth: '440px', height: '100%', opacity: 1, zIndex: 5, transform: 'translateX(0) scale(1)', transition };
+        style = carouselNeighborsHidden
+          ? { position: 'absolute', width: '92%', maxWidth: '420px', height: '100%', opacity: 1, zIndex: 5, transform: 'translateX(0) scale(1)', transition }
+          : { position: 'absolute', width: '46%', maxWidth: '440px', height: '100%', opacity: 1, zIndex: 5, transform: 'translateX(0) scale(1)', transition };
       } else if (ad === 1) {
         style = { position: 'absolute', width: '46%', maxWidth: '440px', height: '100%', opacity: 0.45, zIndex: 3, transform: `translateX(${diff * 62}%) scale(0.82)`, transition };
       } else if (ad === 2) {
