@@ -253,7 +253,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ───────── Motorização ───────── */
 .spot{position:relative;isolation:isolate}
-.spot::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(560px circle at var(--mx,72%) var(--my,22%),rgba(232,93,174,.13),transparent 62%);pointer-events:none}
 .motor{padding:var(--pad) 0;background:radial-gradient(900px 500px at 0% 100%,rgba(76,15,61,.5),transparent 60%),linear-gradient(180deg,#1E3D46,#173039)}
 .motor__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,110px);align-items:center}
 .motor .lead{max-width:480px;margin:22px 0 30px}
@@ -425,21 +424,42 @@ ul,ol{margin:0;padding:0;list-style:none}
 .map iframe{width:100%;height:100%;border:0;filter:saturate(.85) contrast(1.02)}
 
 /* ───────── Parceria + rodapé ───────── */
-.partner{background:var(--petrol-800);color:#fff;padding:clamp(32px,4vw,44px) 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.partner__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
-.partner p{font-size:15.5px;line-height:1.65;max-width:640px;color:rgba(255,255,255,.88)}
-.partner strong{font-family:var(--f-display);font-weight:700;color:var(--gold-hi)}
-.foot{background:var(--petrol);color:#fff;padding:clamp(56px,7vw,80px) 0 32px}
-.foot__grid{display:grid;grid-template-columns:1.3fr .7fr 1fr;gap:clamp(32px,5vw,72px);padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot__logo{height:86px;width:auto;margin:-12px 0 8px -10px}
-.foot p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.72);max-width:300px}
-.foot h4{font-family:var(--f-ui);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.foot__col{display:grid;gap:12px;align-content:start;font-size:14px;color:rgba(255,255,255,.82)}
-.foot__col a{color:rgba(255,255,255,.82);width:fit-content;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 1px no-repeat;transition:color .4s,background-size .6s var(--ease)}
-.foot__col a:hover{color:#fff;background-size:100% 1px}
-.foot__end{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;font-size:12px;color:rgba(255,255,255,.5)}
-.foot__wa{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transition:background .5s var(--ease),color .5s var(--ease),transform .5s var(--ease)}
-.foot__wa:hover{background:#25D366;color:#fff;transform:translateY(-3px)}
+@keyframes halo{0%,100%{box-shadow:0 16px 36px -14px rgba(216,185,131,.6),0 0 0 0 rgba(240,221,184,.5),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(90,60,20,.25)}55%{box-shadow:0 16px 36px -14px rgba(216,185,131,.6),0 0 0 14px rgba(240,221,184,0),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(90,60,20,.25)}}
+.foot{position:relative;isolation:isolate;overflow:hidden;color:#fff;padding:clamp(56px,7vw,96px) 0 32px;background:radial-gradient(760px 460px at 0% 100%,rgba(76,15,61,.6),transparent 65%),radial-gradient(640px 400px at 100% 0%,rgba(46,91,102,.4),transparent 65%),var(--petrol)}
+.foot::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 50%,transparent);opacity:.75}
+.foot__mark{position:absolute;z-index:-1;right:-80px;bottom:-130px;width:min(540px,80vw);height:auto;opacity:.05;pointer-events:none;user-select:none}
+.partner{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(20px,3vw,40px);padding:clamp(30px,4vw,50px) clamp(24px,4vw,54px);margin-bottom:clamp(56px,7vw,88px);border-radius:32px;background:radial-gradient(540px 300px at 0% 0%,rgba(216,185,131,.2),transparent 70%),radial-gradient(640px 340px at 100% 100%,rgba(139,19,103,.55),transparent 70%),linear-gradient(135deg,#27555F,#1A363E);box-shadow:inset 0 0 0 1px rgba(240,221,184,.34),inset 0 1px 0 rgba(255,255,255,.14),0 46px 72px -46px rgba(0,0,0,.85)}
+.partner::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 56px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%,#000 65%,transparent);mask-image:linear-gradient(90deg,transparent,#000 35%,#000 65%,transparent);pointer-events:none}
+.partner__ic{width:78px;height:78px;border-radius:24px;display:grid;place-items:center;color:var(--petrol);background:linear-gradient(135deg,#F6E8CB,#B8935A);box-shadow:0 20px 32px -14px rgba(216,185,131,.6),inset 0 1px 0 rgba(255,255,255,.65);transition:transform .8s var(--ease)}
+.partner:hover .partner__ic{transform:rotate(-6deg) scale(1.05)}
+.partner__ic .ico{width:34px;height:34px;stroke-width:1.5}
+.partner .eyebrow{margin-bottom:10px}
+.partner h3{font-family:var(--f-display);font-weight:800;font-size:clamp(1.35rem,2.5vw,1.95rem);line-height:1.15;letter-spacing:-.025em;color:#fff;margin-bottom:10px;text-wrap:balance}
+.partner h3 em{font-style:italic;color:var(--gold-hi)}
+.partner__txt>p:last-child{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.85);max-width:520px}
+.partner__btn{animation:halo 3.2s ease-out infinite}
+.foot__grid{display:grid;grid-template-columns:1.35fr .7fr 1.2fr 1.1fr;gap:clamp(28px,4vw,64px);padding-bottom:clamp(40px,5vw,56px)}
+.foot__logo{height:108px;width:auto;margin:-16px 0 10px -13px}
+.foot__brand p{font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.76);max-width:320px}
+.foot__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.foot__tags li{padding:8px 15px;border-radius:999px;font-family:var(--f-ui);font-size:11.5px;letter-spacing:.08em;color:var(--gold-hi);background:rgba(240,221,184,.07);box-shadow:inset 0 0 0 1px rgba(240,221,184,.34)}
+.foot h4{font-family:var(--f-ui);font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.foot__col{display:grid;gap:14px;align-content:start;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,.86)}
+.foot__col a{color:rgba(255,255,255,.86);width:fit-content;transition:color .5s var(--ease),transform .6s var(--ease)}
+.foot__col a:hover{color:var(--gold-hi);transform:translateX(5px)}
+.foot__item{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center}
+.foot__ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gold-hi);box-shadow:inset 0 0 0 1px rgba(240,221,184,.34);transition:background .5s var(--ease),color .5s var(--ease)}
+.foot__ic .ico{width:16px;height:16px}
+a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
+.foot__hours li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot__hours li:first-child{padding-top:2px}
+.foot__hours span:first-child{color:rgba(255,255,255,.62)}
+.foot__hours span:last-child{text-align:right;color:#fff}
+.foot__end{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;color:rgba(255,255,255,.58)}
+.foot__acts{display:flex;gap:10px}
+.foot__wa,.foot__top{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.24);transition:background .5s var(--ease),color .5s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.foot__wa:hover{background:#25D366;color:#fff;transform:translateY(-3px);box-shadow:0 14px 24px -12px rgba(37,211,102,.7)}
+.foot__top:hover{background:var(--gold-hi);color:var(--petrol);transform:translateY(-3px);box-shadow:0 14px 24px -12px rgba(216,185,131,.7)}
 .foot__wa svg{width:20px;height:20px;fill:currentColor}
 
 /* ───────── WhatsApp flutuante ───────── */
@@ -474,8 +494,9 @@ ul,ol{margin:0;padding:0;list-style:none}
   .ba__grid{grid-template-columns:1fr;gap:36px}
   .biz__media{max-width:520px;margin-inline:auto;width:100%}
   .biz__media .curtain{aspect-ratio:4/3}
-  .foot__grid{grid-template-columns:1fr 1fr}
-  .foot__grid>:first-child{grid-column:1/-1}
+  .foot__grid{grid-template-columns:1fr 1fr;row-gap:44px}
+  .partner{grid-template-columns:auto 1fr}
+  .partner__btn{grid-column:2;justify-self:start}
 }
 @media (max-width:640px){
   h1,h2,h3,h4{text-align:center}
@@ -511,7 +532,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .model{flex:0 0 80%;scroll-snap-align:start;text-align:center}
   .model__go{opacity:1;transform:none}
   .checks li{font-size:14.5px}
-  .awning__body,.partner__in{text-align:center;justify-content:center}
+  .awning__body{text-align:center}
   .awning p{margin-inline:auto}
   .why__list{gap:20px}
   .why__row{position:sticky;top:calc(84px + var(--i,0)*16px);grid-template-columns:1fr;justify-items:center;align-content:center;gap:18px;min-height:268px;padding:34px 24px 36px;text-align:center;border-radius:28px;transform-origin:50% 0;box-shadow:inset 0 0 0 1px var(--line),0 -20px 36px -26px rgba(76,15,61,.5),0 26px 46px -36px rgba(76,15,61,.55)}
@@ -533,10 +554,18 @@ ul,ol{margin:0;padding:0;list-style:none}
   .faq__a p{margin:2px 8px 8px;padding:20px 20px;border-radius:24px;font-size:14.5px}
   .info li{text-align:left}
   .map{outline-offset:8px}
+  .partner{grid-template-columns:1fr;justify-items:center;text-align:center;border-radius:28px;padding:34px 22px}
+  .partner__txt>p:last-child{margin-inline:auto}
+  .partner__btn{grid-column:auto;justify-self:stretch;width:100%;padding:9px 58px}
+  .partner__btn .btn__chip{position:absolute;right:9px;top:50%;margin-top:-18px;width:36px;height:36px}
   .foot__grid{grid-template-columns:1fr;text-align:center}
   .foot__logo{margin-inline:auto}
-  .foot p{margin-inline:auto}
+  .foot__brand p{margin-inline:auto}
+  .foot__tags{justify-content:center}
   .foot__col{justify-items:center}
+  .foot__item{grid-template-columns:1fr;justify-items:center;gap:10px}
+  .foot__hours{width:min(100%,300px)}
+  .foot__col a:hover{transform:none}
   .foot__end{justify-content:center;text-align:center;flex-direction:column}
   .foot{padding-bottom:96px}
   .wa{right:16px;bottom:16px;width:56px;height:56px}
@@ -574,6 +603,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3.5 15.5 15.5 3.5l5 5L8.5 20.5z"/><path d="M7.5 11.5l2 2M10.5 8.5l2 2M13.5 5.5l2 2"/></symbol>
   <symbol id="i-swatch" viewBox="0 0 24 24"><path d="M12 3.5 3.5 8l8.5 4.5L20.5 8z"/><path d="M3.5 12l8.5 4.5 8.5-4.500M3.5 16l8.5 4.5 8.5-4.5"/></symbol>
   <symbol id="i-curtain" viewBox="0 0 24 24"><path d="M3.5 4.5h17M5.5 4.5v15.5M18.5 4.5v15.5M5.5 4.5c0 6 2.5 9.5 6.5 10.5M18.5 4.5c0 6-2.5 9.500-6.5 10.5"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="5.5" r="2"/><path d="M11.2 7.4 6.5 20.5M12.8 7.4l4.7 13.1M8.4 15.2h7.2M12 2v1.5"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></symbol>
   <symbol id="i-sound-off" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M16 9l5 6M21 9l-5 6"/></symbol>
   <symbol id="i-sound-on" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.500 8.500a5 5 0 0 1 0 7M18 6a8 8 0 0 1 0 12"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5.100-1.300A10 10 0 1 0 12 2zm5.600 14.100c-.2.700-1.400 1.400-2 1.500-.5.100-1.100.2-3.200-.7-2.700-1.200-4.500-3.900-4.600-4.100-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-2 1-2.200.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.700.7 1.800.1.2.1.3 0 .5-.4.8-.9 1.100-.9 1.400 0 .2.1.4.3.7.5.8 1.600 1.900 2.500 2.400.4.3.6.2.8 0 .2-.2.9-1 1.100-1.300.2-.3.4-.3.7-.2.3.1 1.600.8 1.900 1 .3.1.5.2.5.4.1.2.1.7-.1 1.400z"/></symbol>
@@ -974,38 +1005,57 @@ ul,ol{margin:0;padding:0;list-style:none}
 </main>
 
 <!-- 15 RODAPÉ -->
-<div class="partner">
-  <div class="shell partner__in">
-    <p><strong>É arquiteto ou designer de interiores?</strong> Temos condição e prazo diferenciados para projeto. Fale direto com a produção.</p>
-    <a class="btn btn--ghost btn--ghost-gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20arquiteto(a)%20e%20quero%20saber%20sobre%20parceria."><span>Falar sobre parceria</span></a>
-  </div>
-</div>
-<footer class="foot">
+<footer class="foot on-dark">
   <div class="shell">
+    <div class="partner reveal">
+      <span class="partner__ic" aria-hidden="true"><svg class="ico"><use href="#i-compass"/></svg></span>
+      <div class="partner__txt">
+        <p class="eyebrow">Parceria profissional</p>
+        <h3>É arquiteto ou <em>designer de interiores</em>?</h3>
+        <p>Temos condição e prazo diferenciados para projeto. Fale direto com a produção.</p>
+      </div>
+      <a class="btn btn--gold partner__btn" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20arquiteto(a)%20e%20quero%20saber%20sobre%20parceria.">
+        <span>Falar sobre parceria</span>
+        <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
     <div class="foot__grid">
-      <div>
+      <div class="foot__brand reveal">
         <img class="foot__logo" src="uploads/LOGO%20RODAP%C3%89.png" alt="Kazê Cortinas e Persianas" width="500" height="500" loading="lazy">
         <p>Cortinas e persianas sob medida, com ateliê, consultoria e instalação próprios.</p>
+        <ul class="foot__tags"><li>14 anos de mercado</li><li>Casa Cor 2021</li></ul>
       </div>
-      <div class="foot__col">
+      <nav class="foot__col reveal" aria-label="Rodapé" style="--i:1">
         <h4>Navegue</h4>
         <a href="#modelos">Modelos</a>
         <a href="#motorizacao">Motorização</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#empresas">Empresas</a>
         <a href="#contato">Contato</a>
-      </div>
-      <div class="foot__col">
+      </nav>
+      <div class="foot__col reveal" style="--i:2">
         <h4>Contato</h4>
-        <a href="https://wa.me/5568999698220">(68) 99969-8220</a>
-        <span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco – AC, CEP 69.900-514</span>
+        <a class="foot__item" href="https://wa.me/5568999698220"><span class="foot__ic"><svg class="ico"><use href="#i-phone"/></svg></span>(68) 99969-8220</a>
+        <span class="foot__item"><span class="foot__ic"><svg class="ico"><use href="#i-pin"/></svg></span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco – AC, CEP 69.900-514</span>
+      </div>
+      <div class="foot__col reveal" style="--i:3">
+        <h4>Horário</h4>
+        <ul class="foot__hours">
+          <li><span>Seg a sex</span><span>9h às 12h · 13h às 17h</span></li>
+          <li><span>Sábado</span><span>9h às 12h30</span></li>
+          <li><span>Domingo</span><span>Fechado</span></li>
+        </ul>
       </div>
     </div>
     <div class="foot__end">
       <span>Kazê Cortinas e Persianas · CNPJ 15.051.769/0001-06</span>
-      <a class="foot__wa" href="https://wa.me/5568999698220" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+      <div class="foot__acts">
+        <a class="foot__wa" href="https://wa.me/5568999698220" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+        <a class="foot__top" href="#topo" aria-label="Voltar ao topo"><svg class="ico"><use href="#i-up"/></svg></a>
+      </div>
     </div>
   </div>
+  <img class="foot__mark" src="uploads/LOGO%20RODAP%C3%89.png" alt="" aria-hidden="true" width="500" height="500" loading="lazy">
 </footer>
 
 <a class="wa" href="https://wa.me/5568999698220?text=Oi!%20Pode%20me%20ajudar%20com%20uma%20d%C3%BAvida%20sobre%20cortinas%3F" aria-label="Fale no WhatsApp"><svg><use href="#i-wa"/></svg></a>
@@ -1221,14 +1271,6 @@ ul,ol{margin:0;padding:0;list-style:none}
     });
   });
 
-  /* Luz que acompanha o cursor nas seções escuras */
-  if (matchMedia('(hover: hover)').matches && !still) {
-    $$('.spot').forEach((s) => s.addEventListener('pointermove', (e) => {
-      const r = s.getBoundingClientRect();
-      s.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      s.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    }));
-  }
 })();
 </script>
 </body>
