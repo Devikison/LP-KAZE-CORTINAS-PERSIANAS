@@ -27,12 +27,13 @@ Skills em `.agents/skills/` (link em `.claude/skills/`). Não apague essas pasta
 
 ## Fluxo de trabalho
 
-1. **Briefing primeiro:** entenda o negócio, público, oferta e CTA principal do cliente. Se faltar informação essencial, pergunte antes de projetar.
-2. **Auditar (LP existente):** liste os problemas do design atual antes de mexer; não quebre funcionalidade (formulários, links de WhatsApp, pixels, tracking, lógica e dados do sistema).
+1. **Briefing primeiro:** entenda o negócio, público e objetivo do projeto (oferta e CTA principal em LP/site; tarefas e dados principais em dashboard/sistema). Se faltar informação essencial, pergunte antes de projetar.
+2. **Auditar (projeto existente):** liste os problemas do design atual antes de mexer; não quebre funcionalidade (formulários, links de WhatsApp, pixels, tracking, lógica e dados do sistema).
 3. **Construir** seguindo as skills invocadas.
 4. **Checklist antes de entregar:**
    - Mobile-first: testar em ~375px, 768px e desktop; sem rolagem horizontal.
-   - CTA principal visível na primeira dobra e repetido ao longo da página.
+   - LP/site/página de links: CTA principal visível na primeira dobra e repetido ao longo da página.
+   - Dashboard/sistema: ação principal evidente, estados de carregamento, vazio e erro tratados, tabelas e formulários usáveis no mobile.
    - Contraste e legibilidade (WCAG AA), `alt` em imagens, hierarquia de títulos (um `h1`).
    - Performance: imagens otimizadas, `loading="lazy"` abaixo da dobra, fontes carregadas com `display=swap`.
    - SEO básico: `title`, `meta description`, Open Graph, `lang="pt-BR"`.
@@ -43,4 +44,4 @@ Skills em `.agents/skills/` (link em `.claude/skills/`). Não apague essas pasta
 
 - Idioma dos projetos: português do Brasil, salvo pedido contrário.
 - Imagens e arquivos do cliente ficam em `uploads/`.
-- Não adicionar dependências ou frameworks sem necessidade; manter a LP leve e rápida.
+- Não adicionar dependências ou frameworks sem necessidade; manter o projeto leve e rápido.

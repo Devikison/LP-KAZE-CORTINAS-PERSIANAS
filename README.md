@@ -1,6 +1,6 @@
-# Modelo de Landing Page (com skills de design)
+# Modelo de Projetos Web (com skills de design)
 
-Repositório base para criar e editar landing pages de clientes com as skills `Leonxlnx/taste-skill` já instaladas e ativadas pelo `CLAUDE.md` (LP, site, página de links, dashboard e sistemas).
+Repositório base para criar e editar landing pages, sites, páginas de links, dashboards e sistemas de clientes com as skills `Leonxlnx/taste-skill` já instaladas e ativadas pelo `CLAUDE.md`.
 
 ## Como usar para um novo cliente
 
