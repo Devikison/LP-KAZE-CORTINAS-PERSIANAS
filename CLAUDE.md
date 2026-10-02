@@ -1,20 +1,23 @@
-# Padrão de qualidade para Landing Pages
+# Padrão de qualidade para projetos web e sistemas
 
-Este repositório entrega landing pages (LPs) para clientes. O objetivo é sempre um resultado de nível agência: nada genérico, nada com cara de template de IA.
+Este repositório entrega projetos para clientes. O objetivo é sempre um resultado de nível agência: nada genérico, nada com cara de template de IA.
 
 ## Regra obrigatória (automática)
 
-Sempre que a tarefa for **criar uma nova LP** ou **alterar uma LP existente** (layout, textos, seções, estilos, responsividade, animações), invoque as skills abaixo com a ferramenta Skill **antes de escrever ou editar qualquer código**, sem esperar o usuário pedir:
+Vale para **qualquer** pedido que mencione ou envolva: Landing Page / LP, site, página de links (link in bio), dashboard, painel, sistema, app web, portal, área de membros, formulário, tela ou interface em geral. Vale tanto para **criar** quanto para **alterar** (layout, textos, seções, estilos, responsividade, animações, funcionalidades com interface).
+
+Nesses casos, invoque as skills abaixo com a ferramenta Skill **antes de escrever ou editar qualquer código**, sem esperar o usuário pedir:
 
 | Situação | Skills a invocar |
 | --- | --- |
-| LP nova | `design-taste-frontend` + `high-end-visual-design` |
-| Mexer em LP existente / redesign | `redesign-existing-projects` + `design-taste-frontend` |
-| Qualquer tarefa de código de LP | `full-output-enforcement` (sem placeholders, sem código truncado) |
+| LP, site ou página de links novos | `design-taste-frontend` + `high-end-visual-design` |
+| Dashboard, painel ou sistema novos | `design-taste-frontend` + `high-end-visual-design` (priorizar clareza, densidade de dados e usabilidade) |
+| Mexer em algo existente / redesign | `redesign-existing-projects` + `design-taste-frontend` |
+| Qualquer tarefa de código | `full-output-enforcement` (sem placeholders, sem código truncado) |
 
 Skills opcionais, usar conforme o briefing:
-- `minimalist-ui`: estilo editorial limpo.
-- `industrial-brutalist-ui`: estilo bruto/técnico.
+- `minimalist-ui`: estilo editorial limpo (bom para dashboards e sistemas).
+- `industrial-brutalist-ui`: estilo bruto/técnico (dashboards com muitos dados).
 - `gpt-taste`: LP com animação forte (GSAP/ScrollTrigger).
 - `image-to-code` / `imagegen-frontend-web`: criar referências visuais por seção antes de codar.
 - `brandkit`: identidade visual/logo quando o cliente não tem.
@@ -25,7 +28,7 @@ Skills em `.agents/skills/` (link em `.claude/skills/`). Não apague essas pasta
 ## Fluxo de trabalho
 
 1. **Briefing primeiro:** entenda o negócio, público, oferta e CTA principal do cliente. Se faltar informação essencial, pergunte antes de projetar.
-2. **Auditar (LP existente):** liste os problemas do design atual antes de mexer; não quebre funcionalidade (formulários, links de WhatsApp, pixels, tracking).
+2. **Auditar (LP existente):** liste os problemas do design atual antes de mexer; não quebre funcionalidade (formulários, links de WhatsApp, pixels, tracking, lógica e dados do sistema).
 3. **Construir** seguindo as skills invocadas.
 4. **Checklist antes de entregar:**
    - Mobile-first: testar em ~375px, 768px e desktop; sem rolagem horizontal.
@@ -38,6 +41,6 @@ Skills em `.agents/skills/` (link em `.claude/skills/`). Não apague essas pasta
 
 ## Convenções
 
-- Idioma das LPs: português do Brasil, salvo pedido contrário.
+- Idioma dos projetos: português do Brasil, salvo pedido contrário.
 - Imagens e arquivos do cliente ficam em `uploads/`.
 - Não adicionar dependências ou frameworks sem necessidade; manter a LP leve e rápida.
