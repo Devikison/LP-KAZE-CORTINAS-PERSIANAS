@@ -10,21 +10,39 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Kazê Cortinas e Persianas">
 <meta property="og:description" content="Cortinas e persianas sob medida com projeto, instalação e motorização.">
-<meta property="og:image" content="https://sitepreviavisual.site/uploads/a-hero.jpg">
+<meta property="og:url" content="https://kazecortinas.com.br/">
+<meta property="og:site_name" content="Kazê Cortinas e Persianas">
+<meta property="og:image" content="https://kazecortinas.com.br/uploads/a-hero.jpg">
+<meta property="og:image:width" content="1120">
+<meta property="og:image:height" content="1400">
+<meta property="og:image:alt" content="Sala com pé-direito duplo e cortinas Kazê">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://kazecortinas.com.br/">
+<meta name="format-detection" content="telephone=no">
 <link rel="icon" href="uploads/FAVICON.png">
+<link rel="apple-touch-icon" href="uploads/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Poppins:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;1,700;1,800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="uploads/a-hero.jpg" fetchpriority="high">
 <script>document.documentElement.classList.add('js')</script>
+<script>
+/* Rastreamento (padrão 2!H): preencher o ID do GTM quando o Douglas enviar. Vazio = nada carrega. */
+window.KAZE_GTM = '';
+window.dataLayer = window.dataLayer || [];
+if (window.KAZE_GTM) {
+  (function(w,d,s,l,i){w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',window.KAZE_GTM);
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Kazê Cortinas e Persianas",
   "description": "Cortinas e persianas sob medida com projeto, instalação e motorização.",
-  "image": "https://sitepreviavisual.site/uploads/a-hero.jpg",
+  "image": "https://kazecortinas.com.br/uploads/a-hero.jpg",
+  "url": "https://kazecortinas.com.br/",
+  "logo": "https://kazecortinas.com.br/uploads/LOGO%20HEADER.png",
   "telephone": "+55 68 99969-8220",
   "address": {
     "@type": "PostalAddress",
@@ -571,6 +589,233 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
 @media (hover:none){
   .model__go{opacity:1;transform:none}
 }
+/* ═════════ Redesign 11/2026: barra encorpada, ritmo de seções e hierarquia ═════════ */
+:root{
+  /* escala de espaço única (base 8) */
+  --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-5:48px; --s-6:64px; --s-7:96px; --s-8:128px;
+  --pad:clamp(88px,9vw,136px);
+  --head-gap:clamp(40px,4.4vw,64px);
+  --top-h:40px; --main-h:84px; --bar-h:calc(var(--top-h) + var(--main-h));
+  --sand:#FBF7F4; --rose:#F6EEF2; --ink:#142C33; --ink-2:#3C5C64;
+  --f-body:'Poppins',sans-serif;
+}
+body{font-size:16px;color:var(--ink)}
+[id]{scroll-margin-top:96px}
+
+/* Barra: faixa de informações + barra principal clara */
+.bar{top:0;left:0;right:0;transform:none;width:auto;transition:transform .7s var(--ease)}
+.bar.is-away{transform:none;opacity:1;pointer-events:auto}
+.bar__top{height:var(--top-h);background:var(--plum);color:#F3E6EE;font-family:var(--f-ui);font-size:13px;font-weight:500;overflow:hidden;transition:height .6s var(--ease),opacity .4s ease}
+.bar__top-in{height:100%;display:flex;align-items:center;gap:var(--s-4)}
+.bar__fact{display:inline-flex;align-items:center;gap:var(--s-1);white-space:nowrap}
+.bar__fact .ico{width:15px;height:15px;color:var(--gold)}
+.bar__fact--end{margin-left:auto}
+.bar__main{background:rgba(251,247,244,.97);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);box-shadow:0 1px 0 rgba(76,15,61,.1);transition:box-shadow .6s var(--ease),background .6s var(--ease)}
+.bar__in{display:flex;align-items:center;gap:var(--s-4);height:var(--main-h);padding:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transition:height .6s var(--ease)}
+.bar.is-scrolled .bar__in{background:none;box-shadow:none}
+.bar.is-scrolled .bar__top{height:0;opacity:0}
+.bar.is-scrolled .bar__main{background:rgba(251,247,244,.9);box-shadow:0 1px 0 rgba(76,15,61,.12),0 18px 40px -28px rgba(46,9,37,.45)}
+.bar.is-scrolled{--main-h:72px}
+.bar__logo{justify-self:auto;flex:none;border-radius:6px}
+.bar__logo img{height:44px;width:auto;margin:0}
+.bar__nav{margin-inline:auto;gap:clamp(20px,2.6vw,40px)}
+.bar__nav a{font-size:15px;font-weight:500;color:var(--ink);padding:var(--s-1) 0}
+.bar__nav a::after{bottom:0;height:2px;border-radius:2px;background:var(--magenta)}
+.bar__nav a:hover,.bar__nav a.is-here{color:var(--plum)}
+.bar__nav a.is-here::after{transform:scaleX(1)}
+.bar__act{display:flex;align-items:center;gap:var(--s-3);flex:none}
+.bar__tel{display:grid;font-family:var(--f-ui);font-size:15px;font-weight:600;line-height:1.2;color:var(--ink);transition:color .4s var(--ease)}
+.bar__tel small{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
+.bar__tel:hover{color:var(--plum)}
+.bar__cta{justify-self:auto}
+.bar__wa{display:none;width:46px;height:46px;border-radius:50%;place-items:center;color:#fff;background:#1FAF54;box-shadow:0 10px 22px -10px rgba(31,175,84,.7)}
+.bar__wa svg{width:22px;height:22px;fill:currentColor}
+.bar__burger{background:var(--rose);color:var(--plum)}
+.bar__burger:hover{background:#EEDDE7}
+.menu{place-items:stretch;padding:calc(var(--main-h) + var(--s-4)) var(--gut) var(--s-5);background:linear-gradient(170deg,#4C0F3D,#2E0925)}
+.menu__in{display:flex;flex-direction:column;justify-content:space-between;gap:var(--s-5);height:100%}
+.menu nav{align-items:flex-start;gap:0}
+.menu a:not(.btn){padding:var(--s-1) 0;font-size:clamp(1.9rem,9vw,2.4rem)}
+.menu__foot{display:grid;gap:var(--s-3);opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.menu.is-open .menu__foot{opacity:1;transform:none;transition-delay:.5s}
+.menu__foot p{color:rgba(255,255,255,.8);font-size:15px;line-height:1.6}
+.menu .btn{opacity:1;transform:none;font-size:15px;letter-spacing:0;padding:9px 9px 9px 30px;justify-content:space-between}
+
+/* Primeira dobra: cabe inteira na tela do computador */
+.hero{min-height:100dvh;display:grid;align-items:center;padding:calc(var(--bar-h) + var(--s-5)) 0 var(--s-6);background:radial-gradient(1000px 640px at 92% 30%,rgba(199,155,184,.24),transparent 64%),var(--sand)}
+.hero::before{display:none}
+.hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(48px,6vw,104px)}
+.hero .eyebrow{margin-bottom:var(--s-3)}
+.h1{font-size:clamp(2.6rem,4.4vw,4.4rem);line-height:1.02;margin-bottom:var(--s-3);text-wrap:balance}
+.hero__lead{font-size:clamp(16.5px,1.3vw,19px);line-height:1.65;max-width:34ch;margin-bottom:var(--s-5);color:var(--ink-2)}
+.hero__media{justify-self:end;width:auto;height:min(calc(100dvh - var(--bar-h) - 2*var(--s-6)),680px);min-height:420px;aspect-ratio:4/5}
+.hero__frame{height:100%;aspect-ratio:auto}
+.seam{display:none}
+
+/* Rótulo e títulos de seção */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.2em;color:var(--magenta);margin-bottom:var(--s-3)}
+.eyebrow::before{content:"";flex:none;width:14px;height:12px;background:repeating-linear-gradient(180deg,currentColor 0 2px,transparent 2px 5px)}
+.on-dark .eyebrow{color:var(--gold-hi)}
+.h2{font-size:clamp(2.2rem,4.2vw,3.5rem);line-height:1.04;letter-spacing:-.035em}
+.lead{font-size:clamp(16px,1.2vw,18px);line-height:1.7;color:var(--ink-2);max-width:56ch}
+.on-dark .lead{color:rgba(255,255,255,.88)}
+.head{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--s-5) clamp(40px,6vw,96px);margin-bottom:var(--head-gap)}
+.head--center{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:end;text-align:left;max-width:none}
+.head--center .eyebrow,.head--center .h2{grid-column:1}
+.head--center .lead{grid-column:2;grid-row:1/span 2;align-self:end;margin:0}
+
+/* Ritmo: cada seção com tom próprio, sem dois tons iguais seguidos */
+.stats{padding:var(--s-6) 0;background:var(--ink);color:#fff}
+.stat{border-left-color:rgba(255,255,255,.14)}
+.stat__n{color:var(--gold-hi)}
+.stat__l{color:rgba(255,255,255,.78)}
+.doors{padding:var(--pad) 0;background:#fff}
+.models{padding:var(--pad) 0;background:var(--rose)}
+.model__media{background:#EADAE3}
+.motor{padding:var(--pad) 0}
+.awning{margin-top:var(--pad);padding-top:var(--pad)}
+.why{padding:var(--pad) 0;background:var(--sand)}
+.why__row{background:#fff}
+.work{padding:var(--pad) 0;color:#fff;background:linear-gradient(170deg,#4C0F3D 0%,#2E0925 100%)}
+.work .h2{color:#fff}
+.work .h2 em{color:var(--gold-hi)}
+.work .eyebrow{color:var(--gold-hi)}
+.work .lead{color:rgba(255,255,255,.88)}
+.work__track{background:rgba(255,255,255,.18)}
+.work__thumb{background:linear-gradient(90deg,var(--gold-lo),var(--gold-hi))}
+.work .round{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.work .round:hover{background:var(--gold-hi);color:var(--plum)}
+.shots{padding-bottom:var(--s-4)}
+.ba-sec{padding:var(--pad) 0;background:#fff}
+.ba__cap{color:var(--ink-2);font-weight:500}
+.biz{padding:var(--pad) 0;background:var(--rose)}
+.biz__item{box-shadow:inset 0 0 0 1px rgba(76,15,61,.12)}
+.how{padding:var(--pad) 0;background:#fff}
+.faq{padding:var(--pad) 0;background:var(--sand)}
+.contact{padding:var(--pad) 0}
+.foot{padding-top:var(--pad)}
+.partner h2{font-family:var(--f-display);font-weight:800;font-size:clamp(1.35rem,2.5vw,1.95rem);line-height:1.15;letter-spacing:-.025em;color:#fff;margin-bottom:10px;text-wrap:balance}
+.partner h2 em{font-style:italic;color:var(--gold-hi)}
+.foot h3{font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-3)}
+.why .lead,.motor .lead,.biz .lead,.contact .lead{margin:var(--s-3) 0 var(--s-5)}
+.faq__side .lead{margin:var(--s-3) 0 var(--s-4)}
+
+/* Textos mais firmes para leitura */
+.model p,.biz__item p,.step p,.door p{font-size:15.5px;line-height:1.7}
+.model p,.biz__item p,.step p{color:var(--ink-2)}
+.biz__item h3,.step h3{font-weight:600}
+.step--final p{color:rgba(255,255,255,.88)}
+
+.hero__lead{max-width:40ch}
+
+/* Sem desfoque: nada de brilho radial, vidro embaçado ou sombra borrada. Cores sólidas. */
+.hero{background:var(--sand)}
+.motor{background:#173039}
+.contact{background:var(--plum)}
+.contact::after,.partner::before{display:none}
+.foot{background:var(--petrol)}
+.foot::before{background:var(--gold);opacity:.5}
+.partner{background:#1E3D46;box-shadow:inset 0 0 0 1px rgba(240,221,184,.3)}
+.work{background:#3A0C2F}
+.step::before,.step--final::before{display:none}
+.step--final{background:var(--plum);box-shadow:none}
+.step,.why__row,.faq__item,.biz__item{box-shadow:inset 0 0 0 1px rgba(76,15,61,.12)}
+.step:hover,.why__row:hover,.faq__item:not(.is-open):hover,.biz__item:hover{box-shadow:inset 0 0 0 1px var(--mauve)}
+.faq__item.is-open{background:var(--plum);box-shadow:none}
+.faq__a p{background:#fff;box-shadow:none}
+.why__n,.step__ic,.partner__ic{box-shadow:none}
+.why__n{background:var(--plum)}
+.step__ic{background:var(--magenta)}
+.step--final .step__ic,.partner__ic{background:var(--gold)}
+.faq__item.is-open .faq__ico{background:var(--gold);box-shadow:none}
+.bar__main,.bar.is-scrolled .bar__main{background:var(--sand);-webkit-backdrop-filter:none;backdrop-filter:none}
+.bar.is-scrolled .bar__main{box-shadow:0 1px 0 rgba(76,15,61,.14)}
+.door__go,.model__n,.shot__plus,.ba__tag,.sound{-webkit-backdrop-filter:none;backdrop-filter:none}
+.door__go,.shot__plus{background:rgba(20,44,51,.72);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.model__n,.ba__tag{background:var(--ink);box-shadow:none}
+.ba__tag--d{background:var(--plum)}
+.sound{background:var(--ink)}
+.lb::backdrop{background:rgba(26,8,22,.95);-webkit-backdrop-filter:none;backdrop-filter:none}
+.btn--primary{background:var(--magenta);box-shadow:none}
+.btn--primary:hover{background:var(--plum);box-shadow:none}
+.btn--gold{background:var(--gold);box-shadow:none}
+.btn--gold:hover{background:var(--gold-hi);box-shadow:none}
+.btn::after{display:none}
+.partner__btn{animation:none}
+.hero__frame,.biz__media .curtain,.ba,.shot__btn,.device,.map{box-shadow:none}
+.shot__btn:hover,.model:hover .model__media{box-shadow:none}
+.device{outline-color:rgba(240,221,184,.35)}
+.why__media .device{outline-color:rgba(76,15,61,.25)}
+.seal{box-shadow:none}
+.wa{background:#1FAF54;box-shadow:0 8px 18px -8px rgba(20,44,51,.5)}
+.wa:hover{box-shadow:0 10px 20px -8px rgba(20,44,51,.55)}
+.bar__wa{box-shadow:none}
+.progress{background:var(--magenta)}
+/* monitores baixos (1366x640, 1440x745): a primeira dobra continua inteira */
+@media (min-width:941px) and (max-height:820px){
+  .hero{padding:calc(var(--bar-h) + var(--s-4)) 0 var(--s-4)}
+  .h1{font-size:clamp(2.4rem,min(4.2vw,7.4vh),4rem)}
+  .hero .eyebrow{margin-bottom:var(--s-2)}
+  .hero__lead{margin-bottom:var(--s-4)}
+  .hero__media{height:calc(100dvh - var(--bar-h) - 2*var(--s-4));min-height:380px}
+}
+@media (min-width:941px) and (max-height:680px){
+  :root{--top-h:0px}
+  .bar__top{display:none}
+  .hero__lead{font-size:16px;margin-bottom:var(--s-3)}
+}
+@media (max-width:1180px){
+  .bar__tel{display:none}
+}
+@media (max-width:1040px){
+  .bar__nav{gap:var(--s-3)}
+  .bar__nav a{font-size:14px}
+}
+@media (max-width:940px){
+  :root{--top-h:0px;--main-h:68px}
+  .bar__top{display:none}
+  .bar.is-scrolled{--main-h:64px}
+  .bar__in{gap:var(--s-2)}
+  .bar__logo img{height:36px}
+  .bar__act{margin-left:auto;gap:10px}
+  .bar__cta{display:none}
+  .bar__wa{display:grid}
+  .hero{min-height:0;padding:calc(var(--bar-h) + var(--s-4)) 0 var(--s-6)}
+  .hero__grid{grid-template-columns:1fr;gap:var(--s-5)}
+  .hero__media{order:-1;justify-self:stretch;width:100%;height:min(52svh,460px);min-height:0;aspect-ratio:auto}
+  .hero__media::before{inset:-8px}
+  .hero__copy{text-align:left}
+  .hero__lead{margin-inline:0}
+  .hero__cta{justify-content:flex-start}
+  .seal{left:auto;right:var(--s-3);bottom:-44px;margin-left:0}
+  .head,.head--center{grid-template-columns:1fr;gap:0}
+  .head--center .lead,.head .lead{grid-column:1;grid-row:auto;margin-top:var(--s-3)}
+}
+@media (max-width:640px){
+  :root{--pad:80px;--head-gap:var(--s-5)}
+  h1,h2,h3,h4,.eyebrow,.lead,.hero__lead{text-align:left}
+  .lead,.hero__lead{margin-inline:0}
+  .cta-c{justify-content:flex-start}
+  .door__body,.awning__body,.faq__side,.biz__item,.model{text-align:left}
+  .door p,.awning p,.partner__txt>p:last-child{margin-inline:0}
+  .h1{font-size:clamp(2.2rem,10vw,2.75rem)}
+  .h2{font-size:clamp(2rem,8.6vw,2.5rem)}
+  .hero{padding-bottom:var(--s-5)}
+  .hero__media{height:min(46svh,400px)}
+  .hero__media::before{display:none}
+  .seal{width:92px;height:92px;bottom:-36px}
+  .stats{padding:var(--s-5) 0}
+  .why__row,.step{text-align:left;justify-items:start}
+  .why__row::before{left:24px;margin-left:0}
+  .partner{justify-items:start;text-align:left}
+  .foot__grid{text-align:left}
+  .foot__logo,.foot__brand p{margin-inline:0}
+  .foot__tags{justify-content:flex-start}
+  .foot__col{justify-items:start}
+  .foot__item{grid-template-columns:40px 1fr;justify-items:start}
+  .foot__end{align-items:flex-start;text-align:left}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
@@ -610,31 +855,51 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
 
 <!-- 01 BARRA -->
 <header class="bar" id="bar">
-  <div class="bar__in">
-    <button class="bar__burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-    <nav class="bar__nav" aria-label="Principal">
-      <a href="#modelos">Modelos</a>
-      <a href="#motorizacao">Motorização</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <a class="bar__logo" href="#topo" aria-label="Kazê Cortinas e Persianas, voltar ao início">
-      <img src="uploads/LOGO%20HEADER.png" alt="Kazê Cortinas e Persianas" width="500" height="500">
-    </a>
-    <a class="btn btn--gold btn--sm bar__cta" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas.">
-      <span>Fale Conosco</span>
-      <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
-    </a>
+  <div class="bar__top">
+    <div class="shell bar__top-in">
+      <span class="bar__fact"><svg class="ico"><use href="#i-pin"/></svg>Ateliê próprio em Rio Branco, Acre</span>
+      <span class="bar__fact"><svg class="ico"><use href="#i-ruler"/></svg>Medição técnica sem custo</span>
+      <span class="bar__fact bar__fact--end"><svg class="ico"><use href="#i-clock"/></svg>Seg a sex, 9h às 17h. Sáb até 12h30</span>
+    </div>
+  </div>
+  <div class="bar__main">
+    <div class="shell bar__in">
+      <a class="bar__logo" href="#topo" aria-label="Kazê Cortinas e Persianas, voltar ao início">
+        <img src="uploads/logo-kaze-h-escuro.png" alt="Kazê Cortinas e Persianas" width="472" height="130">
+      </a>
+      <nav class="bar__nav" aria-label="Principal">
+        <a href="#modelos">Modelos</a>
+        <a href="#motorizacao">Motorização</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="bar__act">
+        <a class="bar__tel" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20a%20Kaz%C3%AA." data-btn="topo_telefone"><small>WhatsApp</small>(68) 99969-8220</a>
+        <a class="btn btn--primary btn--sm bar__cta" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." data-btn="topo_orcamento">
+          <span>Pedir orçamento</span>
+          <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="bar__wa" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." aria-label="Pedir orçamento no WhatsApp" data-btn="topo_wa_mobile"><svg><use href="#i-wa"/></svg></a>
+        <button class="bar__burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
+    </div>
   </div>
 </header>
 <div class="menu" id="menu" aria-hidden="true">
-  <nav aria-label="Menu">
-    <a href="#modelos" style="--i:0">Modelos</a>
-    <a href="#motorizacao" style="--i:1">Motorização</a>
-    <a href="#portfolio" style="--i:2">Portfólio</a>
-    <a href="#empresas" style="--i:3">Empresas</a>
-    <a href="#contato" style="--i:4">Contato</a>
-  </nav>
+  <div class="menu__in">
+    <nav aria-label="Menu">
+      <a href="#modelos" style="--i:0">Modelos</a>
+      <a href="#motorizacao" style="--i:1">Motorização</a>
+      <a href="#portfolio" style="--i:2">Portfólio</a>
+      <a href="#empresas" style="--i:3">Empresas</a>
+      <a href="#contato" style="--i:4">Contato</a>
+    </nav>
+    <div class="menu__foot" style="--i:5">
+      <p>Rua Quintino Bocaiúva, 1434, Bosque, Rio Branco, AC</p>
+      <a class="btn btn--gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20agendar%20uma%20medi%C3%A7%C3%A3o." data-btn="menu_medicao"><span>Agendar medição</span><span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
 </div>
 
 <main>
@@ -643,11 +908,11 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
 <section class="hero" id="topo">
   <div class="shell hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow reveal">Ateliê próprio · Rio Branco, Acre</p>
+      <p class="eyebrow reveal">Ateliê próprio em Rio Branco, Acre</p>
       <h1 class="h1" data-split>Cada janela pede uma <em>medida diferente</em>.</h1>
       <p class="hero__lead reveal" style="--i:3">Cortinas e persianas confeccionadas no nosso ateliê, medidas no local e instaladas por quem projetou, sem improviso e sem tamanho padrão.</p>
       <div class="hero__cta reveal" style="--i:4">
-        <a class="btn btn--primary" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas.">
+        <a class="btn btn--primary" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." data-btn="orcamento">
           <span>Pedir orçamento</span>
           <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
@@ -678,7 +943,8 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
 </section>
 
 <!-- 04 PORTAS DE ENTRADA -->
-<section class="doors" aria-label="Para quem atendemos">
+<section class="doors" aria-labelledby="doors-t">
+  <h2 class="sr" id="doors-t">Para quem atendemos</h2>
   <div class="shell doors__grid">
     <a class="door reveal" href="#modelos" style="--i:0">
       <div class="door__media curtain"><img src="uploads/a-sala-destaque.jpg" alt="" width="1201" height="1601" loading="lazy" decoding="async"></div>
@@ -715,58 +981,58 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
     </div>
     <div class="models__grid">
       <article class="model reveal" style="--i:0">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Cortinas%20de%20Tecido.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Cortinas%20de%20Tecido.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_tecido">
           <img src="uploads/a-cortina-tecido.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">01</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Cortinas de Tecido</h3>
         <p>Linho e tecidos nobres com pregas macho, wave ou americana. O tipo de prega define o caimento e o clima da sala.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Cortinas%20de%20Tecido.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Cortinas%20de%20Tecido.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_tecido_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="model reveal" style="--i:1">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Rol%C3%B4.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Rol%C3%B4.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_rolo">
           <img src="uploads/a-persianas-rolo.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">02</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Persianas Rolô</h3>
         <p>Enrolam totalmente no topo e somem quando abertas. Estrutura minimalista para cozinha, lavanderia, escritório e vãos que pedem discrição.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Rol%C3%B4.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Rol%C3%B4.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_rolo_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="model reveal" style="--i:2">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Telas%20Solares%20(Screen).%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Telas%20Solares%20(Screen).%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_tela_solar">
           <img src="uploads/a-telas-solares.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">03</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Telas Solares (Screen)</h3>
         <p>Tecido tecnológico que filtra raios UV e reduz o calor interno sem bloquear a luz natural nem a vista para fora.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Telas%20Solares%20(Screen).%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Telas%20Solares%20(Screen).%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_tela_solar_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="model reveal" style="--i:0">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Sistemas%20de%20Blackout.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Sistemas%20de%20Blackout.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_blackout">
           <img src="uploads/a-blackout.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">04</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Sistemas de Blackout</h3>
         <p>Bloqueio de 100% da luminosidade, com acabamento lateral que impede a fresta. Para quarto, sala de TV, home theater e sala de procedimento.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Sistemas%20de%20Blackout.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Sistemas%20de%20Blackout.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_blackout_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="model reveal" style="--i:1">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20de%20Madeira%20e%20Bambu.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20de%20Madeira%20e%20Bambu.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_madeira">
           <img src="uploads/a-madeira-bambu.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">05</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Persianas de Madeira e Bambu</h3>
         <p>Lâminas horizontais reguláveis que você inclina para dosar a luz sem fechar a janela. Aspecto aquecido e sofisticado.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20de%20Madeira%20e%20Bambu.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20de%20Madeira%20e%20Bambu.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_madeira_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="model reveal" style="--i:2">
-        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Verticais%20e%20Horizontais.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true">
+        <a class="model__media curtain" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Verticais%20e%20Horizontais.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" tabindex="-1" aria-hidden="true" data-btn="modelo_vertical">
           <img src="uploads/a-vert-horiz.jpg" alt="" width="901" height="1126" loading="lazy" decoding="async">
           <span class="model__n">06</span><span class="model__go"><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
         <h3>Persianas Verticais e Horizontais</h3>
         <p>Alumínio, PVC ou tecido. O giro das lâminas controla privacidade e fluxo de luz de forma independente da abertura.</p>
-        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Verticais%20e%20Horizontais.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Persianas%20Verticais%20e%20Horizontais.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="modelo_vertical_2">Pedir orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
       </article>
     </div>
   </div>
@@ -788,14 +1054,14 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
           <li><svg class="ico"><use href="#i-check"/></svg>Sem cordão pendurado, mais seguro para quem tem criança em casa</li>
         </ul>
         <div class="cta-c reveal" style="--i:4">
-          <a class="btn btn--gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20saber%20sobre%20cortinas%20motorizadas.">
+          <a class="btn btn--gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20saber%20sobre%20cortinas%20motorizadas." data-btn="motorizacao">
             <span>Falar sobre motorização</span>
             <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
           </a>
         </div>
       </div>
       <div class="device reveal" style="--i:2">
-        <video data-src="uploads/V%C3%ADdeo%20cortina%20motorizada%20%201080x1740.mp4" muted loop playsinline preload="none" aria-label="Cortina motorizada abrindo"></video>
+        <video poster="uploads/poster-motor.jpg" data-src="uploads/V%C3%ADdeo%20cortina%20motorizada%20%201080x1740.mp4" muted loop playsinline preload="none" aria-label="Cortina motorizada abrindo"></video>
       </div>
     </div>
     <div class="awning">
@@ -804,7 +1070,7 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
         <p class="eyebrow">Área externa</p>
         <h3>Toldos que seguram sol e chuva</h3>
         <p>Estruturas robustas para varanda, área gourmet e fachada, dimensionadas para o vão e para a incidência solar do lado em que ficam. Retráteis ou fixas.</p>
-        <a class="btn btn--ghost btn--ghost-gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Toldos%20externos.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F"><span>Pedir orçamento de toldo</span></a>
+        <a class="btn btn--ghost btn--ghost-gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Toldos%20externos.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F" data-btn="toldo"><span>Pedir orçamento de toldo</span></a>
       </div>
     </div>
   </div>
@@ -826,7 +1092,7 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
     </div>
     <div class="why__media reveal" style="--i:2">
       <div class="device">
-        <video id="atelie" data-src="uploads/Ateli%C3%AA%20bastidores.mp4" muted loop playsinline preload="none" aria-label="Bastidores do ateliê Kazê"></video>
+        <video id="atelie" poster="uploads/poster-atelie.jpg" data-src="uploads/Ateli%C3%AA%20bastidores.mp4" muted loop playsinline preload="none" aria-label="Bastidores do ateliê Kazê"></video>
         <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Ativar ou desativar o som do vídeo">
           <svg class="ico i-off"><use href="#i-sound-off"/></svg><svg class="ico i-on"><use href="#i-sound-on"/></svg>
         </button>
@@ -921,7 +1187,7 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
         <div class="biz__item reveal" style="--i:3"><h3>Instalação fora do horário de atendimento</h3><p>Combinamos dia e hora para não parar a agenda. Obra limpa e ambiente liberado no mesmo dia.</p></div>
       </div>
       <div class="cta-c reveal">
-        <a class="btn btn--primary" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20de%20uma%20empresa%20e%20preciso%20de%20cortinas%20para%20um%20espa%C3%A7o%20comercial.">
+        <a class="btn btn--primary" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20de%20uma%20empresa%20e%20preciso%20de%20cortinas%20para%20um%20espa%C3%A7o%20comercial." data-btn="empresas_visita">
           <span>Solicitar visita técnica</span>
           <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
@@ -954,20 +1220,20 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
       <p class="eyebrow">Dúvidas frequentes</p>
       <h2 class="h2">O que perguntam <em>antes de fechar</em></h2>
       <p class="lead">Não achou a sua dúvida aqui? Chame no WhatsApp e respondemos direto.</p>
-      <a class="link" href="https://wa.me/5568999698220?text=Oi!%20Pode%20me%20ajudar%20com%20uma%20d%C3%BAvida%20sobre%20cortinas%3F">Tirar uma dúvida <svg class="ico"><use href="#i-arrow"/></svg></a>
+      <a class="link" href="https://wa.me/5568999698220?text=Oi!%20Pode%20me%20ajudar%20com%20uma%20d%C3%BAvida%20sobre%20cortinas%3F" data-btn="duvida">Tirar uma dúvida <svg class="ico"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="faq__list" id="faq">
-      <div class="faq__item is-open reveal" style="--i:0"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="true"><span>A medição tem custo?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Não. A visita para medir o vão e avaliar a incidência solar é gratuita e sem compromisso de fechamento.</p></div></div></div>
-      <div class="faq__item reveal" style="--i:1"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Qual a diferença entre tela solar e blackout?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>A tela solar filtra os raios UV e corta o calor, mas mantém a luz natural e a vista para fora, boa para sala e escritório. O blackout bloqueia 100% da luminosidade, para quarto, home theater e sala de procedimento. Muita gente combina os dois na mesma janela.</p></div></div></div>
-      <div class="faq__item reveal" style="--i:2"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>A motorizada funciona com Alexa ou Google?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Sim. Os motores podem ser configurados para comando de voz com Alexa e Google Assistente, e sincronizam com sistemas de casa inteligente. Também funcionam por controle remoto ou interruptor de parede.</p></div></div></div>
+      <div class="faq__item is-open reveal" style="--i:0"><h3><button class="faq__q" type="button" aria-expanded="true"><span>A medição tem custo?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Não. A visita para medir o vão e avaliar a incidência solar é gratuita e sem compromisso de fechamento.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:1"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Qual a diferença entre tela solar e blackout?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>A tela solar filtra os raios UV e corta o calor, mas mantém a luz natural e a vista para fora, boa para sala e escritório. O blackout bloqueia 100% da luminosidade, para quarto, home theater e sala de procedimento. Muita gente combina os dois na mesma janela.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:2"><h3><button class="faq__q" type="button" aria-expanded="false"><span>A motorizada funciona com Alexa ou Google?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Sim. Os motores podem ser configurados para comando de voz com Alexa e Google Assistente, e sincronizam com sistemas de casa inteligente. Também funcionam por controle remoto ou interruptor de parede.</p></div></div></div>
       <!-- PENDENTE: resposta provisória, confirmar prazo com a Kazê -->
-      <div class="faq__item reveal" style="--i:3"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Qual o prazo de entrega?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>O prazo varia conforme o modelo, o tecido e o tamanho do projeto. A data de entrega é informada junto com o orçamento, antes do fechamento.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:3"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Qual o prazo de entrega?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>O prazo varia conforme o modelo, o tecido e o tamanho do projeto. A data de entrega é informada junto com o orçamento, antes do fechamento.</p></div></div></div>
       <!-- PENDENTE: resposta provisória, confirmar garantia com a Kazê -->
-      <div class="faq__item reveal" style="--i:4"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Vocês dão garantia?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Sim. A assistência é feita pela mesma equipe que instalou, e as condições de garantia de cada produto são informadas no orçamento.</p></div></div></div>
-      <div class="faq__item reveal" style="--i:5"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Como faço a limpeza?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Depende do material. Persianas, rolôs e telas solares são limpos com pano levemente úmido. Tecidos seguem a orientação da composição, entregue junto com a instalação.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:4"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Vocês dão garantia?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Sim. A assistência é feita pela mesma equipe que instalou, e as condições de garantia de cada produto são informadas no orçamento.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:5"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Como faço a limpeza?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>Depende do material. Persianas, rolôs e telas solares são limpos com pano levemente úmido. Tecidos seguem a orientação da composição, entregue junto com a instalação.</p></div></div></div>
       <!-- PENDENTE: resposta provisória, confirmar formas de pagamento com a Kazê -->
-      <div class="faq__item reveal" style="--i:6"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Quais as formas de pagamento?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>As condições de pagamento são combinadas no orçamento. Chame no WhatsApp e passamos as opções para o seu projeto.</p></div></div></div>
-      <div class="faq__item reveal" style="--i:7"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false"><span>Como funciona para quem está em outra cidade?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>O atendimento inclui medição técnica no local. Para outras cidades, avaliamos caso a caso, chame no WhatsApp e conversamos sobre a sua situação.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:6"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Quais as formas de pagamento?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>As condições de pagamento são combinadas no orçamento. Chame no WhatsApp e passamos as opções para o seu projeto.</p></div></div></div>
+      <div class="faq__item reveal" style="--i:7"><h3><button class="faq__q" type="button" aria-expanded="false"><span>Como funciona para quem está em outra cidade?</span><span class="faq__ico" aria-hidden="true"><svg class="ico"><use href="#i-plus"/></svg></span></button></h3><div class="faq__a"><div><p>O atendimento inclui medição técnica no local. Para outras cidades, avaliamos caso a caso, chame no WhatsApp e conversamos sobre a sua situação.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -980,12 +1246,12 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
       <h2 class="h2 reveal" style="--i:1">Mande uma <em>foto da janela</em></h2>
       <p class="lead reveal" style="--i:2">É o suficiente para começarmos. A partir dela já indicamos os modelos que funcionam no ambiente e agendamos a medição.</p>
       <ul class="info reveal" style="--i:3">
-        <li><span class="info__ic"><svg class="ico"><use href="#i-phone"/></svg></span><div><small>WhatsApp</small><a href="https://wa.me/5568999698220">(68) 99969-8220</a></div></li>
-        <li><span class="info__ic"><svg class="ico"><use href="#i-pin"/></svg></span><div><small>Endereço</small><span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco – AC, CEP 69.900-514</span></div></li>
+        <li><span class="info__ic"><svg class="ico"><use href="#i-phone"/></svg></span><div><small>WhatsApp</small><a href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20falar%20com%20a%20Kaz%C3%AA." data-btn="contato_numero">(68) 99969-8220</a></div></li>
+        <li><span class="info__ic"><svg class="ico"><use href="#i-pin"/></svg></span><div><small>Endereço</small><span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco, AC, CEP 69.900-514</span></div></li>
         <li><span class="info__ic"><svg class="ico"><use href="#i-clock"/></svg></span><div><small>Horário de funcionamento</small><span>Seg a sex, 9h às 12h e 13h às 17h<br>Sáb, 9h às 12h30 · Dom, fechado</span></div></li>
       </ul>
       <div class="cta-c reveal" style="--i:4">
-        <a class="btn btn--gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica%20para%20medi%C3%A7%C3%A3o.">
+        <a class="btn btn--gold" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica%20para%20medi%C3%A7%C3%A3o." data-btn="agendar_medicao">
           <span>Agendar medição</span>
           <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
         </a>
@@ -1006,10 +1272,10 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
       <span class="partner__ic" aria-hidden="true"><svg class="ico"><use href="#i-compass"/></svg></span>
       <div class="partner__txt">
         <p class="eyebrow">Parceria profissional</p>
-        <h3>É arquiteto ou <em>designer de interiores</em>?</h3>
+        <h2>É arquiteto ou <em>designer de interiores</em>?</h2>
         <p>Temos condição e prazo diferenciados para projeto. Fale direto com a produção.</p>
       </div>
-      <a class="btn btn--gold partner__btn" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20arquiteto(a)%20e%20quero%20saber%20sobre%20parceria.">
+      <a class="btn btn--gold partner__btn" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Sou%20arquiteto(a)%20e%20quero%20saber%20sobre%20parceria." data-btn="parceria_arquiteto">
         <span>Falar sobre parceria</span>
         <span class="btn__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
       </a>
@@ -1021,7 +1287,7 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
         <ul class="foot__tags"><li>14 anos de mercado</li><li>Casa Cor 2021</li></ul>
       </div>
       <nav class="foot__col reveal" aria-label="Rodapé" style="--i:1">
-        <h4>Navegue</h4>
+        <h3>Navegue</h3>
         <a href="#modelos">Modelos</a>
         <a href="#motorizacao">Motorização</a>
         <a href="#portfolio">Portfólio</a>
@@ -1029,12 +1295,12 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
         <a href="#contato">Contato</a>
       </nav>
       <div class="foot__col reveal" style="--i:2">
-        <h4>Contato</h4>
-        <a class="foot__item" href="https://wa.me/5568999698220"><span class="foot__ic"><svg class="ico"><use href="#i-phone"/></svg></span>(68) 99969-8220</a>
-        <span class="foot__item"><span class="foot__ic"><svg class="ico"><use href="#i-pin"/></svg></span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco – AC, CEP 69.900-514</span>
+        <h3>Contato</h3>
+        <a class="foot__item" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20atendimento." data-btn="rodape_numero"><span class="foot__ic"><svg class="ico"><use href="#i-phone"/></svg></span>(68) 99969-8220</a>
+        <span class="foot__item"><span class="foot__ic"><svg class="ico"><use href="#i-pin"/></svg></span>Rua Quintino Bocaiúva, nº 1434, Bairro Bosque, Rio Branco, AC, CEP 69.900-514</span>
       </div>
       <div class="foot__col reveal" style="--i:3">
-        <h4>Horário</h4>
+        <h3>Horário</h3>
         <ul class="foot__hours">
           <li><span>Seg a sex</span><span>9h às 12h · 13h às 17h</span></li>
           <li><span>Sábado</span><span>9h às 12h30</span></li>
@@ -1049,7 +1315,7 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
   <img class="foot__mark" src="uploads/LOGO%20RODAP%C3%89.png" alt="" aria-hidden="true" width="500" height="500" loading="lazy">
 </footer>
 
-<a class="wa" href="https://wa.me/5568999698220?text=Oi!%20Pode%20me%20ajudar%20com%20uma%20d%C3%BAvida%20sobre%20cortinas%3F" aria-label="Fale no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+<a class="wa" href="https://wa.me/5568999698220?text=Oi!%20Pode%20me%20ajudar%20com%20uma%20d%C3%BAvida%20sobre%20cortinas%3F" aria-label="Fale no WhatsApp" data-btn="duvida_2"><svg><use href="#i-wa"/></svg></a>
 
 <script>
 (() => {
@@ -1138,6 +1404,56 @@ a.foot__item:hover .foot__ic{background:var(--gold-hi);color:var(--petrol)}
   addEventListener('resize', onScroll);
   bar.addEventListener('focusin', () => bar.classList.remove('is-away'));
   frame();
+
+  /* Rolagem suave da roda do mouse (sem biblioteca). Solta o controle ao
+     pegar a barra lateral, usar o teclado, tocar na tela ou clicar num link. */
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine && !still) {
+    let target = scrollY, cur = scrollY, running = false, own = false;
+    const maxY = () => root.scrollHeight - innerHeight;
+    const loop = () => {
+      cur += (target - cur) * 0.12;
+      if (Math.abs(target - cur) < 0.6) { cur = target; running = false; }
+      own = true; window.scrollTo({ top: cur, behavior: 'instant' });
+      if (running) requestAnimationFrame(loop);
+    };
+    const free = () => { running = false; target = cur = scrollY; };
+    addEventListener('wheel', (e) => {
+      if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      if (e.target.closest && e.target.closest('dialog[open], .menu.is-open, iframe')) return;
+      e.preventDefault();
+      const d = e.deltaMode === 1 ? e.deltaY * 40 : e.deltaMode === 2 ? e.deltaY * innerHeight : e.deltaY;
+      if (!running) cur = target = scrollY;
+      target = Math.max(0, Math.min(maxY(), target + d));
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }, { passive: false });
+    addEventListener('scroll', () => { if (own) { own = false; return; } if (!running) target = cur = scrollY; }, { passive: true });
+    addEventListener('pointerdown', free, { passive: true });
+    addEventListener('keydown', free);
+    addEventListener('touchstart', free, { passive: true });
+  }
+
+  /* UTM: repassa a origem da visita para a mensagem do WhatsApp e registra o clique */
+  const qs = new URLSearchParams(location.search);
+  const utm = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].filter((k) => qs.get(k)).map((k) => k.replace('utm_','') + ': ' + qs.get(k));
+  $$('a[href*="wa.me/"]').forEach((a) => {
+    if (utm.length) {
+      const u = new URL(a.href);
+      u.searchParams.set('text', (u.searchParams.get('text') || '') + ' (' + utm.join(', ') + ')');
+      a.href = u.toString();
+    }
+    a.addEventListener('click', () => dataLayer.push({ event: 'clique_whatsapp', botao: a.dataset.btn || 'whatsapp' }));
+  });
+
+  /* Navegação: marca a seção atual */
+  const navLinks = $$('.bar__nav a');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach((a) => a.classList.toggle('is-here', a.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  navLinks.forEach((a) => { const t = $(a.getAttribute('href')); if (t) spy.observe(t); });
 
   /* Menu */
   const burger = $('#burger'), menu = $('#menu');
