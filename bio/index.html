@@ -20,7 +20,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;1,800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/uploads/a-hero.jpg" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,13 +32,12 @@
 }
 </script>
 <script>
-/* Rastreamento (padrão 2!H): preencher o ID do GTM quando o Douglas enviar. Vazio = nada carrega. */
+/* Rastreamento (padrão 2!H): preencher o ID do GTM quando o Douglas enviar.
+   Ele só carrega depois que a pessoa aceita os cookies (LGPD). */
 window.KAZE_GTM = '';
-window.dataLayer = window.dataLayer || [];
-if (window.KAZE_GTM) {
-  (function(w,d,s,l,i){w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',window.KAZE_GTM);
-}
 </script>
+<link rel="stylesheet" href="/css/kaze-comum.css">
+<script src="/js/kaze-comum.js" defer></script>
 <style>
 :root{
   --plum:#4C0F3D; --magenta:#8B1367; --mauve:#C79BB8; --rose:#F6EEF2; --sand:#FBF7F4;
@@ -48,7 +46,13 @@ if (window.KAZE_GTM) {
   --s-1:8px; --s-2:16px; --s-3:24px; --s-4:32px; --s-5:48px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{overflow-x:clip;-webkit-text-size-adjust:100%}
+html{overflow-x:clip;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-color:var(--magenta) var(--rose)}
+/* barra de rolagem na identidade da Kazê, igual à do site */
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-track{background:var(--rose)}
+::-webkit-scrollbar-thumb{background:var(--magenta);border-radius:20px;border:3px solid var(--rose)}
+::-webkit-scrollbar-thumb:hover{background:var(--plum)}
+::selection{background:var(--plum);color:#fff}
 body{margin:0;min-height:100dvh;background:var(--sand);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;-webkit-font-smoothing:antialiased}
 h1,h2,p{margin:0}
 a{text-decoration:none;color:inherit}
@@ -60,7 +64,7 @@ img{display:block;max-width:100%}
 .page{width:min(480px,100% - 2*var(--s-3));margin-inline:auto;padding:var(--s-4) 0 var(--s-5)}
 
 /* Cabeçalho: logo + foto em arco, como no site */
-.brand{display:flex;justify-content:center;margin-bottom:var(--s-4)}
+.brand{display:flex;justify-content:center;margin-bottom:var(--s-5)}
 .brand img{height:40px;width:auto}
 .cover{position:relative;margin-bottom:var(--s-4)}
 .cover__frame{aspect-ratio:5/4;border-radius:999px 999px 20px 20px;overflow:hidden;background:var(--rose)}
@@ -68,7 +72,8 @@ img{display:block;max-width:100%}
 .cover__tag{position:absolute;left:var(--s-2);bottom:var(--s-2);display:inline-flex;align-items:center;gap:var(--s-1);padding:8px 14px;border-radius:8px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:500}
 .cover__tag .ico{width:15px;height:15px;color:var(--gold)}
 
-.intro{margin-bottom:var(--s-4)}
+.intro{margin-bottom:var(--s-4);text-align:center}
+.intro p{margin-inline:auto;max-width:34ch;text-wrap:balance}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:var(--s-2);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--magenta)}
 .eyebrow::before{content:"";width:14px;height:12px;background:repeating-linear-gradient(180deg,currentColor 0 2px,transparent 2px 5px)}
 h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(1.85rem,7.4vw,2.3rem);line-height:1.06;letter-spacing:-.035em;text-wrap:balance;margin-bottom:var(--s-2)}
@@ -77,38 +82,73 @@ h1 em{font-style:italic;color:var(--plum)}
 .intro .eyebrow{font-size:12px;line-height:1.4;letter-spacing:.16em;color:var(--magenta)}
 
 /* Botões */
-.links{display:grid;gap:12px}
-.lk{display:grid;grid-template-columns:48px 1fr 20px;align-items:center;gap:var(--s-2);min-height:76px;padding:12px 18px 12px 12px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px rgba(76,15,61,.14);transition:background .6s var(--ease),color .6s var(--ease),box-shadow .6s var(--ease),transform .6s var(--ease)}
-.lk__ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--rose);color:var(--plum);transition:background .6s var(--ease),color .6s var(--ease)}
+.links{display:grid;gap:14px}
+/* Botões no estilo do site: pílula, ícone em círculo à esquerda e
+   "chip" de seta à direita que troca a seta ao passar o mouse */
+.lk{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;
+  min-height:72px;padding:10px 10px 10px 10px;border-radius:999px;font-family:'Poppins',sans-serif;
+  transition:transform .6s var(--ease),background-color .6s var(--ease),color .5s var(--ease),box-shadow .6s var(--ease)}
+.lk__ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;flex:none;transition:background-color .6s var(--ease),color .6s var(--ease),transform .7s var(--ease)}
 .lk__ic svg{width:22px;height:22px}
-.lk__t{display:grid;gap:2px}
-.lk__t strong{font-size:16px;font-weight:600;line-height:1.3}
-.lk__t span{font-size:13.5px;line-height:1.4;color:var(--ink-2);transition:color .6s var(--ease)}
-.lk__go{color:var(--magenta);transition:transform .6s var(--ease)}
+.lk__t{display:grid;gap:1px;min-width:0}
+.lk__t strong{font-size:16px;font-weight:600;line-height:1.25;letter-spacing:-.005em}
+.lk__t span{font-size:13px;line-height:1.35;transition:color .5s var(--ease)}
+.lk__chip{position:relative;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;overflow:hidden;flex:none;transition:background-color .5s var(--ease),color .5s var(--ease)}
+.lk__chip .ico{grid-area:1/1;width:17px;height:17px;transition:transform .65s var(--ease)}
+.lk__chip .ico+.ico{transform:translate(-170%,170%)}
 .lk:active{transform:scale(.985)}
-@media (hover:hover){
-  .lk:hover{box-shadow:inset 0 0 0 1px var(--mauve);transform:translateY(-2px)}
-  .lk:hover .lk__go{transform:translate(3px,-3px)}
-}
-/* 1º site e 2º WhatsApp ganham destaque */
-.lk--site{background:var(--plum);color:#fff;box-shadow:none}
-.lk--site .lk__ic{background:rgba(255,255,255,.12);color:var(--gold-hi)}
-.lk--site .lk__t span{color:rgba(255,255,255,.86)}
-.lk--site .lk__go{color:var(--gold-hi)}
-.lk--wa{background:var(--wa);color:#fff;box-shadow:none}
-.lk--wa .lk__ic{background:rgba(255,255,255,.16);color:#fff}
+
+/* 1º: site (magenta, como o botão principal do site) */
+.lk--site{color:#fff;background-color:var(--magenta)}
+.lk--site .lk__ic{background:rgba(255,255,255,.14);color:var(--gold-hi)}
+.lk--site .lk__t span{color:rgba(255,255,255,.88)}
+.lk--site .lk__chip{background:rgba(255,255,255,.16);color:#fff}
+
+/* 2º: WhatsApp (verde) */
+.lk--wa{color:#fff;background-color:var(--wa)}
+.lk--wa .lk__ic{background:rgba(255,255,255,.18);color:#fff}
 .lk--wa .lk__ic svg{fill:currentColor;stroke:none}
-.lk--wa .lk__t span{color:rgba(255,255,255,.92)}
-.lk--wa .lk__go{color:#fff}
+.lk--wa .lk__t span{color:rgba(255,255,255,.94)}
+.lk--wa .lk__chip{background:rgba(255,255,255,.2);color:#fff}
+
+/* 3º: contorno ameixa que enche de baixo para cima (como o "Ver modelos" do site) */
+.lk--line{color:var(--plum);background-color:#fff;box-shadow:inset 0 0 0 1.5px rgba(76,15,61,.35)}
+.lk--line::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--plum);border-radius:inherit;transform:translateY(101%);transition:transform .7s var(--ease)}
+.lk--line .lk__ic{background:var(--rose);color:var(--plum)}
+.lk--line .lk__t span{color:var(--ink-2)}
+.lk--line .lk__chip{background:var(--plum);color:#fff}
+
 @media (hover:hover){
-  .lk--site:hover{background:#5E1A4D;box-shadow:none}
-  .lk--wa:hover{background:#1A9A49;box-shadow:none}
+  .lk:hover{transform:translateY(-2px)}
+  .lk:hover .lk__chip .ico:first-child{transform:translate(170%,-170%)}
+  .lk:hover .lk__chip .ico+.ico{transform:none}
+  .lk:hover .lk__ic{transform:rotate(-8deg)}
+  .lk--site:hover{background-color:var(--plum)}
+  .lk--site:hover .lk__chip{background:#fff;color:var(--magenta)}
+  .lk--wa:hover{background-color:#1A9A49}
+  .lk--wa:hover .lk__chip{background:#fff;color:#1A9A49}
+  .lk--line:hover{color:#fff;box-shadow:inset 0 0 0 1.5px var(--plum)}
+  .lk--line:hover::before{transform:none}
+  .lk--line:hover .lk__t span{color:rgba(255,255,255,.88)}
+  .lk--line:hover .lk__ic{background:rgba(255,255,255,.14);color:var(--gold-hi)}
+  .lk--line:hover .lk__chip{background:#fff;color:var(--plum)}
 }
+@media (max-width:480px){
+  .page{width:calc(100% - 32px)}
+  .lk{gap:12px;min-height:68px;padding:8px}
+  .lk__ic{width:48px;height:48px}
+  .lk__chip{width:40px;height:40px}
+  .lk__t strong{font-size:15.5px}
+  .lk__t span{font-size:12.5px}
+}
+@media (max-width:360px){.lk__t strong{font-size:14.5px}.lk__t span{font-size:12px}.lk__ic{width:44px;height:44px}}
 .sep{display:flex;align-items:center;gap:var(--s-2);margin:var(--s-3) 0 var(--s-1);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
 .sep::after{content:"";flex:1;height:1px;background:rgba(76,15,61,.14)}
 
-.foot{margin-top:var(--s-5);padding-top:var(--s-3);border-top:1px solid rgba(76,15,61,.14);display:grid;gap:6px;font-size:13.5px;line-height:1.6;color:var(--ink-2)}
-.foot strong{color:var(--ink);font-weight:600}
+.foot{margin-top:var(--s-5);display:grid;justify-items:center;gap:10px;text-align:center;font-size:12px;line-height:1.6;color:var(--ink-2)}
+.foot__links{display:flex;gap:18px;margin:0;padding:0;list-style:none}
+.foot__links a{color:var(--ink-2);text-decoration:underline;text-decoration-color:rgba(60,92,100,.4);text-underline-offset:3px;transition:color .4s,text-decoration-color .4s}
+.foot__links a:hover{color:var(--plum);text-decoration-color:currentColor}
 
 /* entrada suave */
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
@@ -134,16 +174,11 @@ h1 em{font-style:italic;color:var(--plum)}
 
 <main class="page">
   <header class="brand rv">
-    <img src="/uploads/logo-kaze-h-escuro.png" alt="Kazê Cortinas e Persianas" width="472" height="130">
+    <img src="/uploads/logo-kaze-h-escuro.png" alt="Kazê Cortinas e Persianas" width="945" height="260">
   </header>
 
-  <div class="cover rv" style="--i:1">
-    <div class="cover__frame"><img src="/uploads/a-hero.jpg" alt="Sala com pé-direito duplo e cortinas Kazê" width="1120" height="1400" fetchpriority="high"></div>
-    <span class="cover__tag"><svg class="ico"><use href="#i-pin"/></svg>Ateliê próprio em Rio Branco, AC</span>
-  </div>
 
   <section class="intro rv" style="--i:2" aria-labelledby="bio-t">
-    <p class="eyebrow">Cortinas e persianas sob medida</p>
     <h1 id="bio-t">Cada janela pede uma <em>medida diferente</em>.</h1>
     <p>Medimos no local, confeccionamos no nosso ateliê e instalamos. Medição técnica sem custo.</p>
   </section>
@@ -151,55 +186,29 @@ h1 em{font-style:italic;color:var(--plum)}
   <nav class="links" aria-label="Links da Kazê">
     <a class="lk lk--site rv" style="--i:3" href="https://kazecortinas.com.br/?utm_source=link_in_bio&amp;utm_medium=organico&amp;utm_campaign=site-institucional&amp;utm_content=bt_site" data-btn="bio_site">
       <span class="lk__ic"><svg class="ico"><use href="#i-globe"/></svg></span>
-      <span class="lk__t"><strong>Conheça o site da Kazê</strong><span>Modelos, ambientes entregues e como funciona</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
+      <span class="lk__t"><strong>Conheça o site da Kazê</strong><span>Modelos, obras e como funciona</span></span>
+      <span class="lk__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
     </a>
     <a class="lk lk--wa rv" style="--i:4" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento%20de%20cortinas%20ou%20persianas." data-btn="bio_whatsapp">
       <span class="lk__ic"><svg class="ico"><use href="#i-wa"/></svg></span>
-      <span class="lk__t"><strong>Pedir orçamento no WhatsApp</strong><span>Mande uma foto da janela e agendamos a medição</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
+      <span class="lk__t"><strong>Orçamento no WhatsApp</strong><span>Mande a foto da janela</span></span>
+      <span class="lk__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
     </a>
 
-    <p class="sep rv" style="--i:5">Para conhecer</p>
-    <a class="lk rv" style="--i:6" href="https://kazecortinas.com.br/?utm_source=link_in_bio&amp;utm_medium=organico&amp;utm_campaign=site-institucional&amp;utm_content=bt_modelos#modelos" data-btn="bio_modelos">
-      <span class="lk__ic"><svg class="ico"><use href="#i-curtain"/></svg></span>
-      <span class="lk__t"><strong>Modelos de cortina e persiana</strong><span>Tecido, rolô, tela solar, blackout e madeira</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
-    </a>
-    <a class="lk rv" style="--i:7" href="https://kazecortinas.com.br/?utm_source=link_in_bio&amp;utm_medium=organico&amp;utm_campaign=site-institucional&amp;utm_content=bt_motorizacao#motorizacao" data-btn="bio_motorizacao">
-      <span class="lk__ic"><svg class="ico"><use href="#i-remote"/></svg></span>
-      <span class="lk__t"><strong>Cortinas motorizadas</strong><span>Controle, Alexa, Google e horário programado</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
-    </a>
-    <a class="lk rv" style="--i:8" href="https://kazecortinas.com.br/?utm_source=link_in_bio&amp;utm_medium=organico&amp;utm_campaign=site-institucional&amp;utm_content=bt_portfolio#portfolio" data-btn="bio_portfolio">
-      <span class="lk__ic"><svg class="ico"><use href="#i-image"/></svg></span>
-      <span class="lk__t"><strong>Ambientes entregues</strong><span>Fotos de obras concluídas, antes e depois</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
-    </a>
-
-    <p class="sep rv" style="--i:9">Para profissionais</p>
-    <a class="lk rv" style="--i:10" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20Instagram.%20Sou%20de%20uma%20cl%C3%ADnica%20ou%20empresa%20e%20preciso%20de%20cortinas%20para%20o%20espa%C3%A7o." data-btn="bio_empresas">
-      <span class="lk__ic"><svg class="ico"><use href="#i-briefcase"/></svg></span>
-      <span class="lk__t"><strong>Clínicas e empresas</strong><span>Blackout técnico, privacidade e instalação fora do horário</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
-    </a>
-    <a class="lk rv" style="--i:11" href="https://wa.me/5568999698220?text=Ol%C3%A1!%20Vim%20pelo%20Instagram.%20Sou%20arquiteto(a)%20ou%20designer%20e%20quero%20saber%20sobre%20parceria." data-btn="bio_arquitetos">
-      <span class="lk__ic"><svg class="ico"><use href="#i-compass"/></svg></span>
-      <span class="lk__t"><strong>Arquitetos e designers</strong><span>Condição e prazo diferenciados para projeto</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
-    </a>
-
-    <p class="sep rv" style="--i:12">Visite o ateliê</p>
-    <a class="lk rv" style="--i:13" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Quintino%20Bocai%C3%BAva%2C%201434%2C%20Bosque%2C%20Rio%20Branco%2C%20AC" target="_blank" rel="noopener" data-btn="bio_mapa">
+    <a class="lk lk--line rv" style="--i:5" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Quintino%20Bocai%C3%BAva%2C%201434%2C%20Bosque%2C%20Rio%20Branco%2C%20AC" target="_blank" rel="noopener" data-btn="bio_mapa">
       <span class="lk__ic"><svg class="ico"><use href="#i-pin"/></svg></span>
-      <span class="lk__t"><strong>Como chegar</strong><span>Rua Quintino Bocaiúva, 1434, Bosque</span></span>
-      <svg class="ico lk__go"><use href="#i-arrow"/></svg>
+      <span class="lk__t"><strong>Como chegar</strong><span>Rua Quintino Bocaiúva, 1434</span></span>
+      <span class="lk__chip" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg><svg class="ico"><use href="#i-arrow"/></svg></span>
     </a>
   </nav>
 
-  <footer class="foot rv" style="--i:14">
-    <p><strong>Horário:</strong> seg a sex, 9h às 12h e 13h às 17h. Sábado, 9h às 12h30.</p>
-    <p>Kazê Cortinas e Persianas, 14 anos de mercado.</p>
+  <footer class="foot rv" style="--i:7">
+    <p>© 2026 Kazê Cortinas e Persianas. Todos os direitos reservados.<br>CNPJ 15.051.769/0001-06</p>
+    <ul class="foot__links">
+      <li><a href="/politica-de-privacidade/">Privacidade</a></li>
+      <li><a href="/politica-de-cookies/">Cookies</a></li>
+      <li><a href="/termos-de-uso/">Termos de uso</a></li>
+    </ul>
   </footer>
 </main>
 
